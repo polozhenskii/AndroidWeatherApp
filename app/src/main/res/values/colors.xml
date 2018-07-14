@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0277bd</color>
+    <color name="colorPrimaryDark">#004c8c</color>
+    <color name="mainBackground">#E2E2E2</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBlack">#313131</color>
+    <color name="colorBlack99percent">#63000000</color>
+    <color name="colorWhite">#f2f2f2</color>
+    <color name="White10percent">#0AFFFFFF</color>
+    <color name="White50percent">#32FFFFFF</color>
+    <color name="White70percent">#46FFFFFF</color>
+    <color name="White95percent">#63FFFFFF</color>
+    <color name="colorTint">#000000</color>
+
+</resources>
