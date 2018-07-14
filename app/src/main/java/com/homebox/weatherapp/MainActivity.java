@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
     // we'll make HTTP request to this URL to retrieve weather conditions
-    String weatherWebserviceURL = "http://api.openweathermap.org/data/2.5/weather?id=3632306&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric";
+    String weatherWebserviceURL = "http://api.openweathermap.org/data/2.5/weather?id=498817&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric";
     // the loading Dialog
     ProgressDialog pDialog;
     // Textview to show temperature and description
