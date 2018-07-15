@@ -3,6 +3,10 @@ package com.homebox.weatherapp;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,19 +30,23 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private static final int LAYOUT = R.layout.activity_main;
+
     // the toolbar initialization
     private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
 
     // we'll make HTTP request to this URL to retrieve weather conditions
-    String weatherWebserviceURL = "http://api.openweathermap.org/data/2.5/weather?id=498817&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric";
+    private String weatherWebserviceURL = "http://api.openweathermap.org/data/2.5/weather?id=49518&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric";
     // the loading Dialog
-    ProgressDialog pDialog;
+    private ProgressDialog pDialog;
     // Textview to show temperature and description
-    TextView temperature, description, windSpeed, windDirection, humidityValue, pressure, cloudiness;
+    private TextView temperature, description, windSpeed, windDirection, humidityValue, pressure, cloudiness;
     // background image
-    ImageView weatherBackground;
+    private ImageView weatherBackground;
     // JSON object that contains weather information
-    JSONObject jsonObj;
+    private JSONObject jsonObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +54,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // link the XML layout to this JAVA class
-        setContentView(R.layout.activity_main);
+        setContentView(LAYOUT);
 
-        InitToolbar();
+        initToolbar();
+        initNavigationView();
 
         // link graphical items to variables
         cloudiness = findViewById(R.id.cloudiness);
@@ -65,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
         pDialog.setMessage("Please wait while retrieving the weather condition ...");
         pDialog.setCancelable(false);
 
+        retrieveData();
+    }
+
+    private void retrieveData() {
         // Check if Internet is working
         if (!isNetworkAvailable(this)) {
             // Show a message to the user to check his Internet
@@ -120,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
                             backgroundImage = "https://villagemedia.blob.core.windows.net/files/tbnewswatch/images/goodmorning/june-2018/lightning.jpg";
                         } else if (jsonObj.getString("main").equals("Smoke")) {
                             backgroundImage = "https://s3.envato.com/files/234103912/smoke%20imprev.jpg";
+                        } else if (jsonObj.getString("main").equals("Haze")) {
+                            backgroundImage = "https://telefakt.ru/assets/images/resources/2179/93c2cc548758e1fc2c7ade941248fc07f757b5b5.jpg";
                         }
 
                         // load image from link and display it on background
@@ -171,13 +186,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // check internet connection
-
     public boolean isNetworkAvailable(final Context context) {
         final ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
         return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
 
-    private void InitToolbar() {
+    private void initToolbar() {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -188,5 +202,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
         toolbar.inflateMenu(R.menu.menu);
+    }
+
+    private void initNavigationView() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+        // add a navigation button to open the menu without the swipe
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.view_navigation_open, R.string.view_navigation_close);
+        drawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                drawerLayout.closeDrawers();
+                switch (item.getItemId()) {
+
+                    // close application if "Quit" item tapped
+                    case R.id.actionExitItem:
+                        java.lang.System.exit(0);
+                }
+                return true;
+            }
+        });
+
     }
 }
