@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private String weatherWebserviceURL = "http://api.openweathermap.org/data/2.5/weather?id=498817&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric";
     // the loading Dialog
     private ProgressDialog pDialog;
-    // Textview to show temperature and description
+    // TextView to show temperature and description
     private TextView city, temperature, description, windSpeed, windDirection, humidityValue, pressure, cloudiness;
     // background image
     private ImageView weatherBackground;
@@ -132,13 +132,13 @@ public class MainActivity extends AppCompatActivity {
 
                         // choose the image to set as background according to weather condition
                         if (jsonObj.getString("main").equals("Clouds")) {
-                            backgroundImage = "http://vchemraznica.ru/wp-content/uploads/2017/02/cl522.jpg";
+                            backgroundImage = "https://pbs.twimg.com/media/DKtIBhrXUAYScrQ.jpg";
                         } else if (jsonObj.getString("main").equals("Rain")) {
                             backgroundImage = "https://marwendoukh.files.wordpress.com/2017/01/rainy-wallpaper1.jpg";
                         } else if (jsonObj.getString("main").equals("Snow")) {
                             backgroundImage = "https://marwendoukh.files.wordpress.com/2017/01/snow-wallpaper1.jpg";
                         } else if (jsonObj.getString("main").equals("Clear")) {
-                            backgroundImage = "https://om-saratov.ru/files/pages/61597/1527014478general_pages_23_may_2018_i61597_v_saratove_budet_teplaya_i_yasn.jpg";
+                            backgroundImage = "http://www.wallpaperhi.com/thumbnails/detail/20111202/clouds-wallpapers_5056_1280x1024.jpg";
                         } else if (jsonObj.getString("main").equals("Mist")) {
                             backgroundImage = "http://www.zocalopublicsquare.org/wp-content/uploads/2010/05/mist.jpg";
                         } else if (jsonObj.getString("main").equals("Thunderstorm")) {
@@ -179,7 +179,6 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(), "Error , try again ! ", Toast.LENGTH_LONG).show();
                         pDialog.dismiss();
-
                     }
                 }
 
@@ -239,6 +238,21 @@ public class MainActivity extends AppCompatActivity {
                         java.lang.System.exit(0);
                         break;
 
+                    // set city to be London
+                    case R.id.actionLondon:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=2643743&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+                    // set city to be Paris
+                    case R.id.actionParis:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=6455259&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+                    // set city to be Berlin
+                    case R.id.actionBerlin:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=2950159&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
                     // set city to be Kigali
                     case R.id.actionKigali:
                         setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=202061&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
@@ -247,21 +261,6 @@ public class MainActivity extends AppCompatActivity {
                     // set city to be Tokyo
                     case R.id.actionTokyo:
                         setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
-                        retrieveData();
-                        break;
-                    // set city to be Paris
-                    case R.id.actionParis:
-                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=6455259&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
-                        retrieveData();
-                        break;
-                    // set city to be Bönen
-                    case R.id.actionBonen:
-                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=2957818&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
-                        retrieveData();
-                        break;
-                    // set city to be Wales
-                    case R.id.actionWales:
-                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=5877563&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
                         retrieveData();
                         break;
                     // set city to be Canberra
@@ -279,11 +278,9 @@ public class MainActivity extends AppCompatActivity {
                         setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=498817&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
                         retrieveData();
                         break;
-
                 }
                 return true;
             }
         });
-
     }
 }

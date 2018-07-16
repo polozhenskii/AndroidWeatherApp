@@ -45,19 +45,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:background="@drawable/main_header_selector"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:textSize="34sp"
-                    android:textColor="@color/colorBlack"
-                    android:fontFamily="sans-serif-light"
+                    android:textSize="40sp"
+                    android:textColor="@color/colorBlack99percent"
+                    android:fontFamily="sans-serif-medium"
                     />
                 <!--display the temperature-->
                 <TextView
                     android:id="@+id/temperature"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center_horizontal"
                     android:textSize="84sp"
                     android:textColor="@color/colorBlack99percent" />
@@ -67,7 +66,6 @@
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:gravity="center_horizontal"
                     android:textSize="40sp"
                     android:textColor="@color/colorBlack99percent" />
@@ -79,18 +77,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="210dp"
                     android:layout_marginTop="32dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
                     android:layout_marginBottom="16dp"
                     android:foregroundGravity="bottom"
-                    android:backgroundTint="@color/White95percent"
+                    android:backgroundTint="@color/White70percent"
                     card_view:cardCornerRadius="4dp"
-                    card_view:cardElevation="0dp">
+                    card_view:cardElevation="1dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical" >
 
                         <!--display the wind speed and direction-->
                         <LinearLayout
