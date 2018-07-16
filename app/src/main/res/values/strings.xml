@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Weather</string>
+
+    <string name="menu_item_paris">Paris, FR</string>
+    <string name="menu_item_bonen">Bönen, DE</string>
+    <string name="menu_item_wales">Wales, GB</string>
+    <string name="menu_item_canberra">Canberra, AU</string>
+    <string name="menu_item_ottawa">Ottawa, CA</string>
+
+
     <string name="menu_item_exit">Quit</string>
 
     <string name="view_navigation_open">Open</string>

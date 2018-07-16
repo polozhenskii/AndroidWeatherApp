@@ -41,13 +41,13 @@
                 android:paddingTop="60dp">
 
                 <TextView
+                    android:id="@+id/city"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:background="@drawable/main_header_selector"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Saint-Petersburg, Russia"
                     android:textSize="34sp"
                     android:textColor="@color/colorBlack"
                     android:fontFamily="sans-serif-light"

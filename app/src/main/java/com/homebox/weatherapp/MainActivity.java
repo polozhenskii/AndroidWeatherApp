@@ -38,13 +38,15 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
 
     // we'll make HTTP request to this URL to retrieve weather conditions
-    private String weatherWebserviceURL = "http://api.openweathermap.org/data/2.5/weather?id=49518&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric";
+
+    private String weatherWebserviceURL = "http://api.openweathermap.org/data/2.5/weather?id=498817&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric";
     // the loading Dialog
     private ProgressDialog pDialog;
     // Textview to show temperature and description
-    private TextView temperature, description, windSpeed, windDirection, humidityValue, pressure, cloudiness;
+    private TextView city, temperature, description, windSpeed, windDirection, humidityValue, pressure, cloudiness;
     // background image
     private ImageView weatherBackground;
+
     // JSON object that contains weather information
     private JSONObject jsonObj;
 
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         windDirection = findViewById(R.id.wind_direction);
         temperature = findViewById(R.id.temperature);
         description = findViewById(R.id.description);
+        city = findViewById(R.id.city);
         weatherBackground = findViewById(R.id.weatherbackground);
 
         // prepare the loading Dialog
@@ -75,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
 
         retrieveData();
+    }
+
+    public void setWeatherWebserviceURL(String weatherWebserviceURL) {
+        this.weatherWebserviceURL = weatherWebserviceURL;
     }
 
     private void retrieveData() {
@@ -97,8 +104,13 @@ public class MainActivity extends AppCompatActivity {
                         // response will be a json object
 
                         jsonObj = (JSONObject) response.getJSONArray("weather").get(0);
-                        // display weather description into the "description textview"
+
+                        // display weather description into the "description textView"
                         description.setText(jsonObj.getString("description"));
+
+                        // display the city name
+                        city.setText(response.getString("name"));
+
                         // display the temperature
                         temperature.setText(response.getJSONObject("main").getString("temp") + " °C");
 
@@ -211,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.view_navigation_open, R.string.view_navigation_close);
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
+        toggle.getDrawerArrowDrawable().setColor(getColor(R.color.colorBlack));
 
         NavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -222,6 +235,35 @@ public class MainActivity extends AppCompatActivity {
                     // close application if "Quit" item tapped
                     case R.id.actionExitItem:
                         java.lang.System.exit(0);
+                        break;
+
+                    // set city to be Paris
+                    case R.id.actionParis:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=6455259&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+
+                    // set city to be Bönen
+                    case R.id.actionBonen:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=2957818&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+                    // set city to be Wales
+                    case R.id.actionWales:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=5877563&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+                    // set city to be Canberra
+                    case R.id.actionCanberra:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=2172517&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+                    // set city to be Ottawa
+                    case R.id.actionOttawa:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=4276816&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+
                 }
                 return true;
             }
