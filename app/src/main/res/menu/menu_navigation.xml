@@ -1,41 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/actionParis"
-        android:title="@string/menu_item_paris"
-        android:orderInCategory="1"
-        android:icon="@mipmap/icons8_eiffel_tower" />
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
+        <item
+            android:id="@+id/actionKigali"
+            android:title="@string/menu_item_kigali"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_elephant" />
 
-    <item
-        android:id="@+id/actionBonen"
-        android:title="@string/menu_item_bonen"
-        android:orderInCategory="1"
-        android:icon="@mipmap/icons8_german_hat" />
+        <item
+            android:id="@+id/actionTokyo"
+            android:title="@string/menu_item_tokyo"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_ninja_head" />
 
-    <item
-        android:id="@+id/actionWales"
-        android:title="@string/menu_item_wales"
-        android:orderInCategory="1"
-        android:icon="@mipmap/icons8_great_britain" />
+        <item
+            android:id="@+id/actionParis"
+            android:title="@string/menu_item_paris"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_eiffel_tower" />
 
-    <item
-        android:id="@+id/actionCanberra"
-        android:title="@string/menu_item_canberra"
-        android:orderInCategory="1"
-        android:icon="@mipmap/icons8_kangaroo" />
+        <item
+            android:id="@+id/actionBonen"
+            android:title="@string/menu_item_bonen"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_german_hat" />
 
-    <item
-        android:id="@+id/actionOttawa"
-        android:title="@string/menu_item_ottawa"
-        android:orderInCategory="1"
-        android:icon="@mipmap/icons8_autumn" />
+        <item
+            android:id="@+id/actionWales"
+            android:title="@string/menu_item_wales"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_great_britain" />
+
+        <item
+            android:id="@+id/actionCanberra"
+            android:title="@string/menu_item_canberra"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_kangaroo" />
+
+        <item
+            android:id="@+id/actionOttawa"
+            android:title="@string/menu_item_ottawa"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_autumn" />
+
+        <item
+            android:id="@+id/actionSaintPetersburg"
+            android:title="@string/menu_item_spb"
+            android:orderInCategory="1"
+            android:icon="@mipmap/icons8_heart_outline" />
+    </group>
 
 
-
-    <item
-        android:id="@+id/actionExitItem"
-        android:title="@string/menu_item_exit"
-        android:orderInCategory="1"
-        android:icon="@mipmap/ic_exit_to_app" />
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
+        <item
+            android:id="@+id/actionExitItem"
+            android:title="@string/menu_item_exit"
+            android:orderInCategory="1"
+            android:icon="@mipmap/ic_exit_to_app" />
+    </group>
 </menu>

@@ -147,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
                             backgroundImage = "https://s3.envato.com/files/234103912/smoke%20imprev.jpg";
                         } else if (jsonObj.getString("main").equals("Haze")) {
                             backgroundImage = "https://telefakt.ru/assets/images/resources/2179/93c2cc548758e1fc2c7ade941248fc07f757b5b5.jpg";
+                        } else if (jsonObj.getString("main").equals("Fog")) {
+                            backgroundImage = "http://www.setwalls.ru/pic/201304/1024x768/setwalls.ru-6472.jpg";
                         }
 
                         // load image from link and display it on background
@@ -237,12 +239,21 @@ public class MainActivity extends AppCompatActivity {
                         java.lang.System.exit(0);
                         break;
 
+                    // set city to be Kigali
+                    case R.id.actionKigali:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=202061&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+                    // set city to be Tokyo
+                    case R.id.actionTokyo:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=1850147&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
                     // set city to be Paris
                     case R.id.actionParis:
                         setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=6455259&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
                         retrieveData();
                         break;
-
                     // set city to be Bönen
                     case R.id.actionBonen:
                         setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=2957818&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
@@ -261,6 +272,11 @@ public class MainActivity extends AppCompatActivity {
                     // set city to be Ottawa
                     case R.id.actionOttawa:
                         setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=4276816&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
+                        retrieveData();
+                        break;
+                    // set city to be hometown
+                    case R.id.actionSaintPetersburg:
+                        setWeatherWebserviceURL("http://api.openweathermap.org/data/2.5/weather?id=498817&appid=edc18bed57e8ea5ea176c96d9a6c11aa&units=metric");
                         retrieveData();
                         break;
 

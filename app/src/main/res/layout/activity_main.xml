@@ -57,8 +57,9 @@
                     android:id="@+id/temperature"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
                     android:gravity="center_horizontal"
-                    android:textSize="90sp"
+                    android:textSize="84sp"
                     android:textColor="@color/colorBlack99percent" />
 
                 <!--display the weather description-->
@@ -66,6 +67,7 @@
                     android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:gravity="center_horizontal"
                     android:textSize="40sp"
                     android:textColor="@color/colorBlack99percent" />
